@@ -10,12 +10,6 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: "Environment to run tests"
-        required: true
-        default: on
-  workflow_dispatch:
-    inputs:
-      environment:
         description: 'Target environment'
         required: true
         default: 'staging'
