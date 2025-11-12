@@ -12,7 +12,13 @@ on:
       environment:
         description: "Environment to run tests"
         required: true
-        default: "staging"
+        default: on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'staging'
 
 jobs:
   test:
@@ -48,6 +54,9 @@ jobs:
             path: |
                 test-results.txt
                 retention-days: 1
+      - name: Print Environment
+        run: echo "Running in ${{ github.event.inputs.environment }}"
+
 
   report:
     needs: test
