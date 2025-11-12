@@ -12,7 +12,7 @@ on:
       environment:
         description: "Environment to run tests"
         required: true
-        default: on:
+        default: on
   workflow_dispatch:
     inputs:
       environment:
